@@ -13,7 +13,7 @@ const FloorSelector = () => {
       {/* Заголовок с кнопкой */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex justify-between items-center w-full text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-3"
+        className="flex justify-between items-center w-full text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-3 cursor-pointer"
       >
         <span>Выбери этаж</span>
         <span className="text-blue-600 text-sm">

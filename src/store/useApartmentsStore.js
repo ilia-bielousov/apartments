@@ -37,6 +37,7 @@ const filtersKey = (filters) => {
 
 export const useApartmentsStore = create((set) => ({
   floors,
+  apartments,
   selectedFloor: null,
   highlightedApartmentId: null,
   selectedApartmentId: null,

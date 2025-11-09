@@ -52,7 +52,7 @@ const FloorPlan = () => {
     <div className="absolute inset-0">
       <button
         onClick={resetAll}
-        className="fixed md:absolute top-3 left-3 z-20 px-3 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 active:scale-95 transition"
+        className="fixed md:absolute top-3 left-3 z-20 px-3 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 active:scale-95 transition cursor-pointer"
       >
         Назад
       </button>
