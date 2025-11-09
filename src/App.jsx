@@ -43,7 +43,7 @@ function App() {
         </div>
       </main>
 
-      <aside className="w-[350px] bg-white border-l border-gray-300 p-4 flex flex-col h-full overflow-hidden flex-shrink-0 box-border">
+      <aside className="w-[350px] bg-white border-l border-gray-300 p-4 flex flex-col h-full overflow-hidden shrink-0 box-border">
         {selectedApartment ? <InfoPanel /> : <ApartmentList />}
       </aside>
     </div>

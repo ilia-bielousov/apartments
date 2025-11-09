@@ -16,27 +16,41 @@ const floorImages = {
   3: floor3Image,
   4: floor4Image,
   5: floor5Image,
+  6: floor5Image,
+  7: floor5Image,
 };
 
 const VIEWBOX_W = 2240;
 const VIEWBOX_H = 1240;
 
+// Разные смещения для двух типов домов
+const FLOOR_TRANSFORMS = {
+  lowRise: { x: 147, y: 229 },
+  highRise: { x: 659, y: 229 },
+};
+
 const FloorPlan = () => {
   const selectedFloor = useApartmentsStore((state) => state.selectedFloor);
   const apartments = useApartmentsStore(selectFilteredApartments);
   const highlightedApartmentId = useApartmentsStore(
-    (state) => state.highlightedApartmentId,
+    (state) => state.highlightedApartmentId
   );
   const selectedApartmentId = useApartmentsStore(
-    (state) => state.selectedApartmentId,
+    (state) => state.selectedApartmentId
   );
   const highlightApartment = useApartmentsStore(
-    (state) => state.highlightApartment,
+    (state) => state.highlightApartment
   );
   const selectApartment = useApartmentsStore((state) => state.selectApartment);
   const resetAll = useApartmentsStore((state) => state.resetAll);
 
   const planImage = floorImages[selectedFloor] || floor1Image;
+
+  // Определяем тип этажа: низкий (1–4) или высокий (5–7)
+  const isHighRise = selectedFloor >= 5;
+  const transform = isHighRise
+    ? FLOOR_TRANSFORMS.highRise
+    : FLOOR_TRANSFORMS.lowRise;
 
   return (
     <div className="relative flex w-full h-full justify-center items-center overflow-hidden bg-gray-100">
@@ -61,7 +75,7 @@ const FloorPlan = () => {
           preserveAspectRatio="xMidYMid meet"
         />
 
-        <g transform="translate(207, 188)">
+        <g transform={`translate(${transform.x}, ${transform.y})`}>
           {apartments.map((apt) => (
             <ApartmentShape
               key={apt.id}

@@ -10,13 +10,13 @@ const ApartmentListCard = forwardRef(
     const getStatusLabel = () => {
       switch (status) {
         case 'доступно':
-          return { label: 'Dostępne', color: '#16a34a' };
+          return { label: 'доступно', color: '#16a34a' };
         case 'продано':
-          return { label: 'Sprzedane', color: '#dc2626' };
+          return { label: 'продано', color: '#dc2626' };
         case 'зарезервировано':
-          return { label: 'Zarezerwowane', color: '#d97706' };
+          return { label: 'зарезервировано', color: '#d97706' };
         default:
-          return { label: 'Nieznany', color: '#737373' };
+          return { label: 'Неизвестный', color: '#737373' };
       }
     };
 
@@ -44,12 +44,12 @@ const ApartmentListCard = forwardRef(
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        className={`border ${borderColor} ${background} ${glow} rounded-lg p-4 transition-all duration-200 hover:shadow-lg hover:border-blue-400`}
+        className={`border ${borderColor} ${background} ${glow} rounded-lg p-4 transition-all duration-200 hover:shadow-lg hover:border-blue-400 cursor-pointer`}
       >
         {/* Header */}
         <div className="flex justify-between items-center border-b border-gray-100 pb-2 mb-3">
           <h4 className="text-blue-600 font-semibold text-base">
-            Mieszkanie {id}
+            Квартира {id}
           </h4>
           <span
             className="text-white text-xs font-bold px-2 py-1 rounded"
@@ -62,14 +62,14 @@ const ApartmentListCard = forwardRef(
         {/* Details */}
         <div className="space-y-1 mb-3 text-sm">
           <div className="flex justify-between">
-            <span className="text-gray-500">Cena:</span>
+            <span className="text-gray-500">Цена:</span>
             <span className="font-bold text-blue-600">
-              {price.toLocaleString('pl-PL')} zł
+              {price.toLocaleString('pl-PL')} зт
             </span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-500">Площадь:</span>
-            <span className="font-medium text-gray-800">{area} m²</span>
+            <span className="font-medium text-gray-800">{area} м²</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-500">Комнаты:</span>
@@ -78,7 +78,7 @@ const ApartmentListCard = forwardRef(
           <div className="flex justify-between">
             <span className="text-gray-500">Балкон:</span>
             <span className="font-medium text-gray-800">
-              {balcony_area > 0 ? `${balcony_area} м${<sup>2</sup>}` : 'Нет'}
+              {balcony_area > 0 ? `${balcony_area} м²` : 'Нет'}
             </span>
           </div>
         </div>

@@ -58,8 +58,8 @@ const BuildingView = () => {
                       ? "rgba(37,99,235,0.65)"
                       : "rgba(59,130,246,0.25)"
                   }
-                  stroke="#2563eb"
-                  strokeWidth={STROKE_WIDTH}
+                  // stroke="#2563eb"
+                  // strokeWidth={STROKE_WIDTH}
                   className="cursor-pointer transition-all duration-300"
                   onMouseEnter={() => setHovered(floor)}
                   onMouseLeave={() => setHovered(null)}

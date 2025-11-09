@@ -7,9 +7,9 @@ const RU_RESERVED = '\u0437\u0430\u0440\u0435\u0437\u0435\u0440\u0432\u0438\u044
 const RU_SOLD = '\u043f\u0440\u043e\u0434\u0430\u043d\u043e';
 
 export const INITIAL_FILTERS = {
-  status: [RU_AVAILABLE, RU_RESERVED],
+  status: [RU_AVAILABLE, RU_RESERVED, RU_SOLD],
   rooms: 5,
-  area: 150,
+  area: 162,
   price: 3.5,
 };
 
