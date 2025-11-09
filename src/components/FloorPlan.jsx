@@ -22,8 +22,6 @@ const floorImages = {
 
 const VIEWBOX_W = 2240;
 const VIEWBOX_H = 1240;
-
-// Разные смещения для двух типов домов
 const FLOOR_TRANSFORMS = {
   lowRise: { x: 147, y: 229 },
   highRise: { x: 659, y: 229 },
@@ -45,18 +43,16 @@ const FloorPlan = () => {
   const resetAll = useApartmentsStore((state) => state.resetAll);
 
   const planImage = floorImages[selectedFloor] || floor1Image;
-
-  // Определяем тип этажа: низкий (1–4) или высокий (5–7)
   const isHighRise = selectedFloor >= 5;
   const transform = isHighRise
     ? FLOOR_TRANSFORMS.highRise
     : FLOOR_TRANSFORMS.lowRise;
 
   return (
-    <div className="relative flex w-full h-full justify-center items-center overflow-hidden bg-gray-100">
+    <div className="absolute inset-0">
       <button
         onClick={resetAll}
-        className="absolute top-4 left-4 z-20 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 shadow cursor-pointer"
+        className="fixed md:absolute top-3 left-3 z-20 px-3 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 active:scale-95 transition"
       >
         Назад
       </button>
@@ -64,7 +60,7 @@ const FloorPlan = () => {
       <svg
         viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
         preserveAspectRatio="xMidYMid meet"
-        className="w-full h-auto max-w-[1400px]"
+        className="w-full h-full"
       >
         <image
           href={planImage}
@@ -74,7 +70,6 @@ const FloorPlan = () => {
           height={VIEWBOX_H}
           preserveAspectRatio="xMidYMid meet"
         />
-
         <g transform={`translate(${transform.x}, ${transform.y})`}>
           {apartments.map((apt) => (
             <ApartmentShape

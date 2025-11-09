@@ -1,0 +1,23 @@
+[33mcommit eea94fca3291c2f901ae0fc9f2c80a1657533869[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: ilia_bielousov <ilia.bielousov@gmail.com>
+Date:   Sun Nov 9 22:38:06 2025 +0100
+
+    версия тестовая готова
+
+[33mcommit 27757735211c1ebe931b21be404b42e6d2e7b0ea[m
+Author: ilia_bielousov <ilia.bielousov@gmail.com>
+Date:   Sun Nov 9 18:14:42 2025 +0100
+
+    исправлено отображение наложение svg на фон
+
+[33mcommit e1073dd256f64519f4b97f0f60da4ae37a67beb5[m
+Author: ilia_bielousov <ilia.bielousov@gmail.com>
+Date:   Sun Nov 9 16:36:45 2025 +0100
+
+    zustand added
+
+[33mcommit 3246cf004efbc9f13d4c0e1c0455908845d5541e[m
+Author: ilia_bielousov <ilia.bielousov@gmail.com>
+Date:   Sun Nov 9 12:21:40 2025 +0100
+
+    first commit
