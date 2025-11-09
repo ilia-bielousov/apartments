@@ -1,10 +1,69 @@
-// Тестовая база данных квартир: 5 этажей, 8 квартир на этаж
+﻿// đóđÁĐüĐéđżđ▓đ░ĐĆ đ▒đ░đĚđ░ đ┤đ░đŻđŻĐőĐů đ║đ▓đ░ĐÇĐéđŞĐÇ: 5 ĐŹĐéđ░đÂđÁđ╣, 8 đ║đ▓đ░ĐÇĐéđŞĐÇ đŻđ░ ĐŹĐéđ░đÂ
+
+const floorShapeLayers = [
+  {
+    id: 7,
+    svg_shape: {
+      type: "path",
+      d: "M246.75 83.4853V81.0588M246.75 81.0588V0.5H621.848L692.772 50V81.5441L712.751 91.7353L713.75 114.059L692.273 132.5L690.775 111.632L620.35 83.9706H246.75V81.0588Z",
+    },
+  },
+  {
+    id: 6,
+    svg_shape: {
+      type: "path",
+      d: "M246.5 143.385V142.882M246.5 142.882V82.5H620.305L690.969 111.182L692.505 132.315L713.5 140.366V161.5H691.481L619.793 143.889H246.742L246.5 142.882Z",
+    },
+  },
+  {
+    id: 5,
+    svg_shape: {
+      type: "path",
+      d: "M91.5 180.816V197.962H551.63L713.5 202.5V188.885L692.017 185.859V160.645L622.073 143.5H246.5V180.816L91.5 180.816Z",
+    },
+  },
+  {
+    id: 4,
+    svg_shape: {
+      type: "path",
+      d: "M91.5 198V283H551.5L697.5 258.5H713V236L692.5 234V210L713 209V202.5L551.5 198H91.5Z",
+    },
+  },
+  {
+    id: 3,
+    svg_shape: {
+      type: "path",
+      d: "M91.5 283L90.5 359.5H551.5L713 300V283.5H693.5V261L713 258.5H697.5L551.5 283H91.5Z",
+    },
+  },
+  {
+    id: 2,
+    svg_shape: {
+      type: "path",
+      d: "M90.5 359.5V432L552 433L713 332.5L697.5 310.5L713 307V300L551.5 359.5H90.5Z",
+    },
+  },
+  {
+    id: 1,
+    svg_shape: {
+      type: "path",
+      d: "M19.5 495L0.5 501.5V502L597.5 500L735.5 383L727.5 369L728 347H721.5V339.5H713V333L552 433L90.5 432V467L19.5 488.5V495Z",
+    },
+  },
+];
+
+const floors = floorShapeLayers
+  .map((layer) => ({
+    ...layer,
+    label: `Этаж ${layer.id}`,
+  }))
+  .sort((a, b) => a.id - b.id);
 
 const apartments = [
   {
     id: "APT-5-01",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 48,
     rooms: 1,
     price: 930000,
@@ -15,7 +74,7 @@ const apartments = [
   {
     id: "APT-5-02",
     floor: 5,
-    status: "зарезервировано",
+    status: "đĚđ░ĐÇđÁđĚđÁĐÇđ▓đŞĐÇđżđ▓đ░đŻđż",
     area: 52,
     rooms: 1,
     price: 870000,
@@ -26,7 +85,7 @@ const apartments = [
   {
     id: "APT-5-03",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 55,
     rooms: 2,
     price: 910000,
@@ -37,7 +96,7 @@ const apartments = [
   {
     id: "APT-5-04",
     floor: 5,
-    status: "продано",
+    status: "đ┐ĐÇđżđ┤đ░đŻđż",
     area: 61,
     rooms: 2,
     price: 980000,
@@ -48,7 +107,7 @@ const apartments = [
   {
     id: "APT-5-05",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 60,
     rooms: 2,
     price: 990000,
@@ -59,7 +118,7 @@ const apartments = [
   {
     id: "APT-5-06",
     floor: 5,
-    status: "зарезервировано",
+    status: "đĚđ░ĐÇđÁđĚđÁĐÇđ▓đŞĐÇđżđ▓đ░đŻđż",
     area: 64,
     rooms: 2,
     price: 1040000,
@@ -70,7 +129,7 @@ const apartments = [
   {
     id: "APT-5-07",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 68,
     rooms: 3,
     price: 1180000,
@@ -81,7 +140,7 @@ const apartments = [
   {
     id: "APT-5-08",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 71,
     rooms: 3,
     price: 1250000,
@@ -92,7 +151,7 @@ const apartments = [
   {
     id: "APT-5-09",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 75,
     rooms: 3,
     price: 1320000,
@@ -103,7 +162,7 @@ const apartments = [
   {
     id: "APT-5-10",
     floor: 5,
-    status: "зарезервировано",
+    status: "đĚđ░ĐÇđÁđĚđÁĐÇđ▓đŞĐÇđżđ▓đ░đŻđż",
     area: 78,
     rooms: 3,
     price: 1380000,
@@ -114,7 +173,7 @@ const apartments = [
   {
     id: "APT-5-11",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 82,
     rooms: 3,
     price: 1450000,
@@ -125,7 +184,7 @@ const apartments = [
   {
     id: "APT-5-12",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 85,
     rooms: 3,
     price: 1520000,
@@ -136,7 +195,7 @@ const apartments = [
   {
     id: "APT-5-13",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 89,
     rooms: 3,
     price: 1590000,
@@ -147,7 +206,7 @@ const apartments = [
   {
     id: "APT-5-14",
     floor: 5,
-    status: "продано",
+    status: "đ┐ĐÇđżđ┤đ░đŻđż",
     area: 92,
     rooms: 3,
     price: 1640000,
@@ -158,7 +217,7 @@ const apartments = [
   {
     id: "APT-5-15",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 96,
     rooms: 3,
     price: 1720000,
@@ -169,7 +228,7 @@ const apartments = [
   {
     id: "APT-5-16",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 101,
     rooms: 4,
     price: 1790000,
@@ -180,7 +239,7 @@ const apartments = [
   {
     id: "APT-5-17",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 104,
     rooms: 4,
     price: 1850000,
@@ -191,7 +250,7 @@ const apartments = [
   {
     id: "APT-5-18",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 110,
     rooms: 4,
     price: 1920000,
@@ -202,7 +261,7 @@ const apartments = [
   {
     id: "APT-5-19",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 115,
     rooms: 4,
     price: 1980000,
@@ -213,7 +272,7 @@ const apartments = [
   {
     id: "APT-5-20",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 120,
     rooms: 4,
     price: 2050000,
@@ -224,7 +283,7 @@ const apartments = [
   {
     id: "APT-5-21",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 124,
     rooms: 4,
     price: 2120000,
@@ -235,7 +294,7 @@ const apartments = [
   {
     id: "APT-5-22",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 128,
     rooms: 4,
     price: 2190000,
@@ -246,7 +305,7 @@ const apartments = [
   {
     id: "APT-5-23",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 132,
     rooms: 4,
     price: 2250000,
@@ -257,7 +316,7 @@ const apartments = [
   {
     id: "APT-5-24",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 138,
     rooms: 4,
     price: 2320000,
@@ -268,7 +327,7 @@ const apartments = [
   {
     id: "APT-5-25",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 142,
     rooms: 4,
     price: 2390000,
@@ -279,7 +338,7 @@ const apartments = [
   {
     id: "APT-5-26",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 145,
     rooms: 4,
     price: 2450000,
@@ -290,7 +349,7 @@ const apartments = [
   {
     id: "APT-5-27",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 150,
     rooms: 4,
     price: 2520000,
@@ -301,7 +360,7 @@ const apartments = [
   {
     id: "APT-5-28",
     floor: 5,
-    status: "доступно",
+    status: "đ┤đżĐüĐéĐâđ┐đŻđż",
     area: 160,
     rooms: 5,
     price: 2650000,
@@ -309,13 +368,6 @@ const apartments = [
     pdf_url: "#",
     svg_shape: { type: "path", d: "M1859.5 114H1774V1.5H1859.5V74H1966.5V145H1859.5V114Z" },
   },
-];
-const floors = [
-  { id: 1, label: "Этаж 1", points: "260,850 740,850 740,950 260,950" },
-  { id: 2, label: "Этаж 2", points: "260,750 740,750 740,850 260,850" },
-  { id: 3, label: "Этаж 3", points: "260,650 740,650 740,750 260,750" },
-  { id: 4, label: "Этаж 4", points: "260,550 740,550 740,650 260,650" },
-  { id: 5, label: "Этаж 5", points: "260,450 740,450 740,550 260,550" },
 ];
 
 export { floors, apartments };
