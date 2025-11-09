@@ -4,7 +4,7 @@ const apartments = [
   {
     id: "APT-5-01",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 48,
     rooms: 1,
     price: 930000,
@@ -15,7 +15,7 @@ const apartments = [
   {
     id: "APT-5-02",
     floor: 5,
-    status: "reserved",
+    status: "зарезервировано",
     area: 52,
     rooms: 1,
     price: 870000,
@@ -26,7 +26,7 @@ const apartments = [
   {
     id: "APT-5-03",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 55,
     rooms: 2,
     price: 910000,
@@ -37,7 +37,7 @@ const apartments = [
   {
     id: "APT-5-04",
     floor: 5,
-    status: "sold",
+    status: "продано",
     area: 61,
     rooms: 2,
     price: 980000,
@@ -48,7 +48,7 @@ const apartments = [
   {
     id: "APT-5-05",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 60,
     rooms: 2,
     price: 990000,
@@ -59,7 +59,7 @@ const apartments = [
   {
     id: "APT-5-06",
     floor: 5,
-    status: "reserved",
+    status: "зарезервировано",
     area: 64,
     rooms: 2,
     price: 1040000,
@@ -70,7 +70,7 @@ const apartments = [
   {
     id: "APT-5-07",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 68,
     rooms: 3,
     price: 1180000,
@@ -81,7 +81,7 @@ const apartments = [
   {
     id: "APT-5-08",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 71,
     rooms: 3,
     price: 1250000,
@@ -92,7 +92,7 @@ const apartments = [
   {
     id: "APT-5-09",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 75,
     rooms: 3,
     price: 1320000,
@@ -103,7 +103,7 @@ const apartments = [
   {
     id: "APT-5-10",
     floor: 5,
-    status: "reserved",
+    status: "зарезервировано",
     area: 78,
     rooms: 3,
     price: 1380000,
@@ -114,7 +114,7 @@ const apartments = [
   {
     id: "APT-5-11",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 82,
     rooms: 3,
     price: 1450000,
@@ -125,7 +125,7 @@ const apartments = [
   {
     id: "APT-5-12",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 85,
     rooms: 3,
     price: 1520000,
@@ -136,7 +136,7 @@ const apartments = [
   {
     id: "APT-5-13",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 89,
     rooms: 3,
     price: 1590000,
@@ -147,7 +147,7 @@ const apartments = [
   {
     id: "APT-5-14",
     floor: 5,
-    status: "sold",
+    status: "продано",
     area: 92,
     rooms: 3,
     price: 1640000,
@@ -158,7 +158,7 @@ const apartments = [
   {
     id: "APT-5-15",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 96,
     rooms: 3,
     price: 1720000,
@@ -169,7 +169,7 @@ const apartments = [
   {
     id: "APT-5-16",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 101,
     rooms: 4,
     price: 1790000,
@@ -180,7 +180,7 @@ const apartments = [
   {
     id: "APT-5-17",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 104,
     rooms: 4,
     price: 1850000,
@@ -191,7 +191,7 @@ const apartments = [
   {
     id: "APT-5-18",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 110,
     rooms: 4,
     price: 1920000,
@@ -202,7 +202,7 @@ const apartments = [
   {
     id: "APT-5-19",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 115,
     rooms: 4,
     price: 1980000,
@@ -213,7 +213,7 @@ const apartments = [
   {
     id: "APT-5-20",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 120,
     rooms: 4,
     price: 2050000,
@@ -224,7 +224,7 @@ const apartments = [
   {
     id: "APT-5-21",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 124,
     rooms: 4,
     price: 2120000,
@@ -235,7 +235,7 @@ const apartments = [
   {
     id: "APT-5-22",
     floor: 5,
-    status: "reserved",
+    status: "доступно",
     area: 128,
     rooms: 4,
     price: 2190000,
@@ -246,7 +246,7 @@ const apartments = [
   {
     id: "APT-5-23",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 132,
     rooms: 4,
     price: 2250000,
@@ -257,7 +257,7 @@ const apartments = [
   {
     id: "APT-5-24",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 138,
     rooms: 4,
     price: 2320000,
@@ -268,7 +268,7 @@ const apartments = [
   {
     id: "APT-5-25",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 142,
     rooms: 4,
     price: 2390000,
@@ -279,7 +279,7 @@ const apartments = [
   {
     id: "APT-5-26",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 145,
     rooms: 4,
     price: 2450000,
@@ -290,7 +290,7 @@ const apartments = [
   {
     id: "APT-5-27",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 150,
     rooms: 4,
     price: 2520000,
@@ -301,7 +301,7 @@ const apartments = [
   {
     id: "APT-5-28",
     floor: 5,
-    status: "available",
+    status: "доступно",
     area: 160,
     rooms: 5,
     price: 2650000,

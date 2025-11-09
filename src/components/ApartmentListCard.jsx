@@ -9,11 +9,11 @@ const ApartmentListCard = forwardRef(
 
     const getStatusLabel = () => {
       switch (status) {
-        case 'available':
+        case 'доступно':
           return { label: 'Dostępne', color: '#16a34a' };
-        case 'sold':
+        case 'продано':
           return { label: 'Sprzedane', color: '#dc2626' };
-        case 'reserved':
+        case 'зарезервировано':
           return { label: 'Zarezerwowane', color: '#d97706' };
         default:
           return { label: 'Nieznany', color: '#737373' };
@@ -68,17 +68,17 @@ const ApartmentListCard = forwardRef(
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-500">Powierzchnia:</span>
+            <span className="text-gray-500">Площадь:</span>
             <span className="font-medium text-gray-800">{area} m²</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-500">Pokoje:</span>
+            <span className="text-gray-500">Комнаты:</span>
             <span className="font-medium text-gray-800">{rooms}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-500">Balkon/Taras:</span>
+            <span className="text-gray-500">Балкон:</span>
             <span className="font-medium text-gray-800">
-              {balcony_area > 0 ? `${balcony_area} m²` : 'Brak'}
+              {balcony_area > 0 ? `${balcony_area} м${<sup>2</sup>}` : 'Нет'}
             </span>
           </div>
         </div>
@@ -86,7 +86,7 @@ const ApartmentListCard = forwardRef(
         {/* Actions */}
         <div className="flex gap-2">
           <button className="flex-1 py-2 text-sm border border-blue-500 text-blue-600 bg-blue-50 hover:bg-blue-100 rounded transition-colors">
-            📍 Zobacz na planie
+            Увидеть план
           </button>
           <a
             href={pdf_url}
@@ -94,7 +94,7 @@ const ApartmentListCard = forwardRef(
             rel="noopener noreferrer"
             className="flex-1 py-2 text-sm text-white bg-blue-600 hover:bg-blue-700 rounded text-center transition-colors"
           >
-            Pobierz PDF
+            Скачать план PDF
           </a>
         </div>
       </div>

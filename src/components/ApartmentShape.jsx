@@ -1,5 +1,25 @@
 import React from 'react';
 
+const RU_AVAILABLE = '\u0434\u043e\u0441\u0442\u0443\u043f\u043d\u043e';
+const RU_RESERVED = '\u0437\u0430\u0440\u0435\u0437\u0435\u0440\u0432\u0438\u0440\u043e\u0432\u0430\u043d\u043e';
+const RU_SOLD = '\u043f\u0440\u043e\u0434\u0430\u043d\u043e';
+
+const STATUS_COLOR_MAP = {
+  available: 'rgba(80, 211, 120, 0.7)',
+  reserved: 'rgba(240, 180, 90, 0.7)',
+  sold: 'rgba(211, 80, 80, 0.7)',
+  [RU_AVAILABLE]: 'rgba(80, 211, 120, 0.7)',
+  [RU_RESERVED]: 'rgba(240, 180, 90, 0.7)',
+  [RU_SOLD]: 'rgba(211, 80, 80, 0.7)',
+};
+
+const INTERACTIVE_STATUSES = new Set([
+  'available',
+  'reserved',
+  RU_AVAILABLE,
+  RU_RESERVED,
+]);
+
 const ApartmentShape = ({
   apartment,
   onMouseEnter,
@@ -10,20 +30,10 @@ const ApartmentShape = ({
 }) => {
   const { status, svg_shape } = apartment;
 
-  const getFillColor = () => {
-    switch (status) {
-      case 'sold':
-        return 'rgba(211, 80, 80, 0.7)'; // красный
-      case 'available':
-        return 'rgba(80, 211, 120, 0.7)'; // зелёный
-      case 'reserved':
-        return 'rgba(240, 180, 90, 0.7)'; // оранжевый
-      default:
-        return 'rgba(150, 150, 150, 0.5)'; // серый
-    }
-  };
+  const getFillColor = () =>
+    STATUS_COLOR_MAP[status] || 'rgba(150, 150, 150, 0.5)';
 
-  const isInteractive = status === 'available' || status === 'reserved';
+  const isInteractive = INTERACTIVE_STATUSES.has(status);
 
   const handleHover = (apartmentId) => {
     const el = document.getElementById(`card-${apartmentId}`);
@@ -31,9 +41,9 @@ const ApartmentShape = ({
   };
 
   const getStrokeStyle = () => {
-    if (isSelected) return '#007bff'; // ярко-синий
-    if (isHighlighted) return '#ff9900'; // ярко-оранжевый
-    return '#333'; // стандарт
+    if (isSelected) return '#007bff';
+    if (isHighlighted) return '#ff9900';
+    return '#333';
   };
 
   const getStrokeWidth = () => {
@@ -54,34 +64,30 @@ const ApartmentShape = ({
         }
       : {};
 
-  // path
+  const commonProps = {
+    fill: getFillColor(),
+    stroke: getStrokeStyle(),
+    strokeWidth: getStrokeWidth(),
+    className: `transition-all duration-200 ${
+      isInteractive
+        ? 'hover:fill-opacity-90 hover:stroke-black hover:stroke-[2px]'
+        : ''
+    }`,
+    style: {
+      cursor: isInteractive ? 'pointer' : 'not-allowed',
+      filter: isSelected
+        ? 'drop-shadow(0 0 6px rgba(0,123,255,0.8))'
+        : isHighlighted
+        ? 'drop-shadow(0 0 6px rgba(255,153,0,0.8))'
+        : 'none',
+    },
+    ...hoverProps,
+  };
+
   if (svg_shape.type === 'path') {
-    return (
-      <path
-        d={svg_shape.d}
-        transform={svg_shape.transform}
-        fill={getFillColor()}
-        stroke={getStrokeStyle()}
-        strokeWidth={getStrokeWidth()}
-        className={`transition-all duration-200 ${
-          isInteractive
-            ? 'hover:fill-opacity-90 hover:stroke-black hover:stroke-[2px]'
-            : ''
-        }`}
-        style={{
-          cursor: isInteractive ? 'pointer' : 'not-allowed',
-          filter: isSelected
-            ? 'drop-shadow(0 0 6px rgba(0,123,255,0.8))'
-            : isHighlighted
-            ? 'drop-shadow(0 0 6px rgba(255,153,0,0.8))'
-            : 'none',
-        }}
-        {...hoverProps}
-      />
-    );
+    return <path d={svg_shape.d} transform={svg_shape.transform} {...commonProps} />;
   }
 
-  // rect
   if (svg_shape.type === 'rect') {
     return (
       <rect
@@ -89,23 +95,7 @@ const ApartmentShape = ({
         y={svg_shape.y}
         width={svg_shape.width}
         height={svg_shape.height}
-        fill={getFillColor()}
-        stroke={getStrokeStyle()}
-        strokeWidth={getStrokeWidth()}
-        className={`transition-all duration-200 ${
-          isInteractive
-            ? 'hover:fill-opacity-90 hover:stroke-black hover:stroke-[2px]'
-            : ''
-        }`}
-        style={{
-          cursor: isInteractive ? 'pointer' : 'not-allowed',
-          filter: isSelected
-            ? 'drop-shadow(0 0 6px rgba(0,123,255,0.8))'
-            : isHighlighted
-            ? 'drop-shadow(0 0 6px rgba(255,153,0,0.8))'
-            : 'none',
-        }}
-        {...hoverProps}
+        {...commonProps}
       />
     );
   }

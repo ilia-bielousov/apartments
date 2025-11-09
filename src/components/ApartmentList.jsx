@@ -1,13 +1,23 @@
 import React, { useRef, useEffect } from 'react';
 import ApartmentListCard from './ApartmentListCard.jsx';
+import {
+  useApartmentsStore,
+  selectFilteredApartments,
+} from '../store/useApartmentsStore';
 
-const ApartmentList = ({
-  apartments,
-  onHover,
-  onSelect,
-  highlightedApartmentId,
-  selectedApartmentId,
-}) => {
+const ApartmentList = () => {
+  const apartments = useApartmentsStore(selectFilteredApartments);
+  const highlightedApartmentId = useApartmentsStore(
+    (state) => state.highlightedApartmentId,
+  );
+  const selectedApartmentId = useApartmentsStore(
+    (state) => state.selectedApartmentId,
+  );
+  const highlightApartment = useApartmentsStore(
+    (state) => state.highlightApartment,
+  );
+  const selectApartment = useApartmentsStore((state) => state.selectApartment);
+
   const cardRefs = useRef({});
   const listContainerRef = useRef(null);
 
@@ -40,8 +50,8 @@ const ApartmentList = ({
   return (
     <div className="w-full max-w-3xl mt-5 px-2">
       <h3 className="text-lg font-semibold text-gray-800 mb-4">
-        Dostępne mieszkania{' '}
-        <span className="text-blue-600">(Znaleziono: {apartments.length})</span>
+        Список квартир{' '}
+        <span className="text-blue-600">(Найдено {apartments.length})</span>
       </h3>
 
       <div
@@ -56,14 +66,14 @@ const ApartmentList = ({
               apartment={apartment}
               isHighlighted={apartment.id === highlightedApartmentId}
               isSelected={apartment.id === selectedApartmentId}
-              onMouseEnter={() => onHover(apartment.id)}
-              onMouseLeave={() => onHover(null)}
-              onClick={() => onSelect(apartment.id)}
+              onMouseEnter={() => highlightApartment(apartment.id)}
+              onMouseLeave={() => highlightApartment(null)}
+              onClick={() => selectApartment(apartment.id)}
             />
           ))
         ) : (
           <div className="p-5 mt-5 bg-amber-50 border border-amber-400 rounded-md text-amber-800 text-center">
-            Brak dostępnych mieszkań
+            Нет свободных квартир.
           </div>
         )}
       </div>
